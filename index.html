@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>APP ACTIVIDAD 1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width,
+                                   user-scalable-no">
+    <link rel="stylesheet" type="text/css"
+          href="estilos.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+<body>
+    <nav>
+        <div class="logout">
+        <img src="logout-512.jpg" height=""32, width="32">
+             </div>
+        <h1>PENDIENTES</h1>
+        <div class="menu"></div>
+        <img src="menu-alt-512.png" height="62", width="62">
+    </nav>
+    
+    <div class="fecha">
+        1/Marzo/2016
+    </div>
+    
+<div class="contenedor">
+    <div class="mensaje">
+        <h2>Felicidades</h2>
+        <p>No tienes ningún pendiente el día de hoy</p>
+        <p>¿Mucha calma? Puedes agregar mas pendientes abajo.</p>
+    </div>
+    <div class="pendiente">
+        <input type="text" placeholder="Agrega pendientes aquí...">
+        <button><#></button>
+    </div>
+    </div>
+    <script>
+        function guardar P(){
+            //Guardar un pendiente en local host
+            //Capturamos el valor del input en una variable
+            pendiente = document.getElementById('agregar-pendiente').value;
+            //Almacenamos el valor en la llave 'pendiente' en el LocalStorage
+            
+            pendientesGuardados = localStorage.getItem('pendiente');
+            totalPendientes = pendienteGuardadp + pendiente + '-';
+            
+            localStorage.setItem('pendiente', pendiente);
+            //Borramos lo que estaba escrito en el input pendiente
+            document.getElementById('agregar-pendiente').value="";
+            //Obtener el pendiente del localStorage y crea un nuevo div
+            //pendienteGuardado = localStorage.getItem('pendiente');
+            //Creamos la cadena de texto del nuevo div
+            nuevoPendiente = "<div class='pendiente'><p>"+pendiente+"</p></div>";
+            //Incrustamos el nuevo div en el contenedor
+            document.getElementById('contenedor-pendientes').innerHTML+=nuevoPendiente}
+        //Escuchador de eventos
+        
+        window.addEventListener('load,cargada,true');
+        
+        function cargada(){
+            //Obtenemos lo que esta almacenado
+            pendiente = localStorage.getItem('pendiente');
+            //Partir por medio de los guiones
+            //pendientePartido se convirtio en un arreglo que contiene pendientes
+            pendientePartido = pendiente.split('-');
+            //Imprimir los pendientes en un while
+            var i = 0;
+            while(i<pendientePartido.length-1){
+            contenedorPendientes = document.getElementById('contenedor-pendientes');
+            contenedorPendientes.innerHTML += "div class='pendiente'><p>"+pendientePartido[i]+"</p></div>"
+            i++;
+        }
+    }
+    </script>
+    </body>
+    </html>
+    
